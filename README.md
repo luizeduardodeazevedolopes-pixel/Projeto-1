@@ -1,32 +1,51 @@
-# 🍔 Sistema de Restaurante - Fatec Rio Claro
+# Projeto Restaurante - Fatec Rio Claro
 
-Projeto desenvolvido em Python para simular o gerenciamento de um restaurante universitário, focado em atender os alunos e professores da faculdade. 
+**Projeto 1 - Sistema de Restaurante próximo à Faculdade FATEC**  
+*Fatec Rio Claro - Segundo Semestre de 2026*
 
-**Turma:** Fatec - 2º Semestre de 2026 | Rio Claro - SP.
+## 📖 Sobre o Projeto
 
-## 🎯 Objetivo do Projeto
-Criar um sistema de controle de comandas, estoque e relatórios de ponta a ponta. Mais do que um simples script, este projeto é um laboratório prático para o estudo aprofundado de **Estruturas de Dados** e **Programação Orientada a Objetos (POO)**.
+Este projeto consiste em um sistema em Python para gerenciar o consumo em um restaurante localizado próximo à Fatec. O diferencial deste projeto é a implementação manual de estruturas de dados (Listas Encadeadas) e o uso prático de conceitos de Programação Orientada a Objetos (POO), como Herança e Polimorfismo, em vez de depender apenas de estruturas prontas.
 
-## 🧠 Conceitos Técnicos Aplicados
+## 🚀 Funcionalidades e Estrutura do Código
 
-Ao invés de utilizar as facilidades prontas da linguagem (como o `list` do Python), o núcleo do sistema foi construído do zero para fins educacionais:
+O código atual está dividido nas seguintes etapas focadas em fundamentos da computação:
 
-* **Listas Encadeadas (Linked Lists):** Criação manual de uma estrutura de controle de dados através da classe `ListaEncadeada`.
-* **Nós (Nodes):** Implementação da classe `No`, funcionando como "vagões" que guardam as informações (cargas) e utilizam ponteiros (`self.proximo`) para se conectar ao restante da fila.
-* **Algoritmos de Inserção:** Lógica de varredura (utilizando a estrutura de repetição `while`) para encontrar o último elemento da lista e engatar novos dados de forma dinâmica na memória.
-* **Pilares da POO:** Aplicação de Classes, Objetos, Herança, Polimorfismo, Encapsulamento (como o uso de `self._inicio`) e métodos construtores (`__init__`).
+### 1. Estrutura de Dados Customizada (Lista Encadeada)
+Em vez de utilizar as listas nativas do Python (`list()`), foi criada uma estrutura própria baseada em nós (`No` e `listaencadeada`). Ela suporta operações fundamentais como:
+*   `inserir()`: Encaixa um novo nó ao final da lista.
+*   `remover()`: Localiza e reconecta a lista após remover um elemento baseado em uma condição.
+*   `buscar()`: Localiza um elemento sem retirá-lo da lista.
+*   **Métodos mágicos:** Suporte a iteração nativa (`__iter__`) para loops `for` e contagem (`__len__`) para `len()`.
+
+### 2. POO: Herança e Polimorfismo
+O catálogo de produtos do restaurante foi modelado utilizando herança:
+*   `Consumo_de_Produto`: Classe-mãe que define atributos comuns a qualquer item consumido (nome e preço) e fornece uma descrição padrão.
+*   `Refeicoes` e `Bebidas`: Classes filhas que herdam de `Consumo_de_Produto`. Elas demonstram **polimorfismo** ao sobrescrever o método `descricao()` para exibir formatações específicas (ex: `[Refeições] Nome - R$ 0.00`).
 
 ## 🛠️ Ferramentas e Bibliotecas Utilizadas
 
-O projeto faz uso de bibliotecas estratégicas para simular um ambiente real:
+*   **[Faker](https://faker.readthedocs.io/):** Biblioteca externa utilizada para a geração rápida e aleatória de dados fictícios.
+*   **Pickle:** Biblioteca nativa do Python, utilizada para serialização de objetos (salvar e carregar dados estruturados diretamente da pasta do Restaurante).
+*   **Datetime:** Biblioteca nativa para manipulação de datas e horários reais (útil para registrar horário de consumo e operações).
 
-* **`Faker`**: Biblioteca externa responsável por gerar dados falsos (nomes de clientes fictícios e formas de pagamento sorteadas) para testar o sistema.
-* **`datetime`**: Biblioteca nativa do Python utilizada para capturar datas e horários reais das operações (como abertura de comandas e pagamentos).
-* **`pickle`**: Biblioteca nativa responsável pela persistência de dados. Ela salva o estado completo do programa em um arquivo `.pkl`, permitindo fechar o código e não perder o histórico do restaurante.
+## ⚙️ Pré-requisitos
 
-## 🚀 Como Executar
+Para rodar este projeto, você precisará do **Python 3.x** instalado em sua máquina, além da instalação das bibliotecas externas listadas.
 
-**1. Instale as dependências:**
-Como o projeto utiliza o `Faker` para gerar os clientes, é necessário instalá-lo via terminal antes de rodar o código:
+1. Instale o Faker utilizando o pip:
 ```bash
 pip install faker
+```
+
+## 🏃‍♂️ Como Executar
+
+1. Clone ou faça o download deste diretório.
+2. Certifique-se de que o pacote `faker` está instalado no seu ambiente.
+3. Execute o script principal do projeto no seu terminal:
+```bash
+python nome_do_arquivo.py
+```
+
+---
+*Desenvolvido para fins acadêmicos - Fatec Rio Claro.*
