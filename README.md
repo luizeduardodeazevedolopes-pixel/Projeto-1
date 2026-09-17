@@ -1,51 +1,32 @@
-# Projeto Restaurante - Fatec Rio Claro
+# 🍽️ Sistema de Gerenciamento de Restaurante - Projeto Fatec
 
-**Projeto 1 - Sistema de Restaurante próximo à Faculdade FATEC**  
-*Fatec Rio Claro - Segundo Semestre de 2026*
+Este projeto é um simulador de sistema de gerenciamento desenvolvido para um restaurante fictício localizado próximo à faculdade. Foi criado como parte das atividades acadêmicas da **Fatec Rio Claro - 2º Semestre de 2026**.
 
-## 📖 Sobre o Projeto
+O sistema foi construído em Python e aplica conceitos fundamentais de Ciência da Computação, como Estruturas de Dados Customizadas (Listas Encadeadas) e Programação Orientada a Objetos (Herança e Polimorfismo).
 
-Este projeto consiste em um sistema em Python para gerenciar o consumo em um restaurante localizado próximo à Fatec. O diferencial deste projeto é a implementação manual de estruturas de dados (Listas Encadeadas) e o uso prático de conceitos de Programação Orientada a Objetos (POO), como Herança e Polimorfismo, em vez de depender apenas de estruturas prontas.
+## 🚀 Funcionalidades
 
-## 🚀 Funcionalidades e Estrutura do Código
+O sistema orquestra todo o fluxo de um restaurante, incluindo:
+- **Gestão de Comandas:** Abertura, adição de itens, cálculo de totais e fechamento.
+- **Gestão de Estoque:** Controle de produtos com data de validade, utilizando a lógica de priorizar o lote mais antigo primeiro (FIFO) durante a baixa do estoque.
+- **Estruturas de Dados Próprias:** Substituição da lista padrão do Python (`list()`) por uma implementação própria de **Lista Encadeada**.
+- **Pagamentos:** Registro de pagamentos validados (PIX, Cartão, Dinheiro).
+- **Relatórios:** Geração de relatórios de consumo por cliente e fluxo de vendas (caixa).
+- **Persistência de Dados:** Salvamento e carregamento automático do estado completo do restaurante (comandas, estoque, pagamentos) utilizando a biblioteca `pickle`.
+- **Simulação Realista:** Uso da biblioteca `Faker` para gerar clientes e consumos aleatórios para testes.
 
-O código atual está dividido nas seguintes etapas focadas em fundamentos da computação:
+## 🛠️ Tecnologias e Bibliotecas Utilizadas
 
-### 1. Estrutura de Dados Customizada (Lista Encadeada)
-Em vez de utilizar as listas nativas do Python (`list()`), foi criada uma estrutura própria baseada em nós (`No` e `listaencadeada`). Ela suporta operações fundamentais como:
-*   `inserir()`: Encaixa um novo nó ao final da lista.
-*   `remover()`: Localiza e reconecta a lista após remover um elemento baseado em uma condição.
-*   `buscar()`: Localiza um elemento sem retirá-lo da lista.
-*   **Métodos mágicos:** Suporte a iteração nativa (`__iter__`) para loops `for` e contagem (`__len__`) para `len()`.
+- **Python 3.x**
+- **`datetime`**: Biblioteca nativa utilizada para gerar datas e horários reais (abertura de comandas, vencimento de produtos, hora do pagamento).
+- **`pickle`**: Biblioteca nativa utilizada para serialização (salvar e carregar) os objetos do restaurante em um arquivo binário (`restaurante.pkl`).
+- **`Faker`**: Biblioteca externa utilizada para popular o sistema com dados falsos e realistas de clientes.
 
-### 2. POO: Herança e Polimorfismo
-O catálogo de produtos do restaurante foi modelado utilizando herança:
-*   `Consumo_de_Produto`: Classe-mãe que define atributos comuns a qualquer item consumido (nome e preço) e fornece uma descrição padrão.
-*   `Refeicoes` e `Bebidas`: Classes filhas que herdam de `Consumo_de_Produto`. Elas demonstram **polimorfismo** ao sobrescrever o método `descricao()` para exibir formatações específicas (ex: `[Refeições] Nome - R$ 0.00`).
+## ⚙️ Como executar o projeto
 
-## 🛠️ Ferramentas e Bibliotecas Utilizadas
+### 1. Pré-requisitos
+Certifique-se de ter o Python instalado na sua máquina. Além disso, você precisará instalar a biblioteca `Faker`.
 
-*   **[Faker](https://faker.readthedocs.io/):** Biblioteca externa utilizada para a geração rápida e aleatória de dados fictícios.
-*   **Pickle:** Biblioteca nativa do Python, utilizada para serialização de objetos (salvar e carregar dados estruturados diretamente da pasta do Restaurante).
-*   **Datetime:** Biblioteca nativa para manipulação de datas e horários reais (útil para registrar horário de consumo e operações).
-
-## ⚙️ Pré-requisitos
-
-Para rodar este projeto, você precisará do **Python 3.x** instalado em sua máquina, além da instalação das bibliotecas externas listadas.
-
-1. Instale o Faker utilizando o pip:
+Abra o terminal e execute o seguinte comando:
 ```bash
 pip install faker
-```
-
-## 🏃‍♂️ Como Executar
-
-1. Clone ou faça o download deste diretório.
-2. Certifique-se de que o pacote `faker` está instalado no seu ambiente.
-3. Execute o script principal do projeto no seu terminal:
-```bash
-python nome_do_arquivo.py
-```
-
----
-*Desenvolvido para fins acadêmicos - Fatec Rio Claro.*
